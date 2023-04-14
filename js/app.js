@@ -3,6 +3,7 @@ let shop = document.getElementById("product-gallery");
 let cartTotalAmountInfo = document.getElementById("cart-total-info");
 let shoppingCartList = document.getElementById("cart-items");
 let cartList = JSON.parse(localStorage.getItem("shopping-cart")) || [];
+let cartAmountItems = document.getElementById("cart-total-items");
 
 
 let generateShop = () => {
@@ -93,10 +94,10 @@ let increment = (id) => {
 let decrement = (id) => {
     let selectedItem = id;
     let search = cartList.find((x) => x.id === selectedItem.id);
-  
+
     if (search === undefined) return;
     else if (search.item === 0) return;
-    else {
+    else{
       search.item -= 1;
     }
 
@@ -104,6 +105,7 @@ let decrement = (id) => {
     update(selectedItem.id);
     updateCartItem(selectedItem.id);
     cartList = cartList.filter((x) => x.item !== 0);
+    generateCartItems();
     localStorage.setItem("shopping-cart", JSON.stringify(cartList));
 };
 
@@ -111,8 +113,8 @@ let decrement = (id) => {
 let update = (id) => {
     let search = cartList.find((x) => x.id === id);
     document.getElementById(id).innerHTML = search.item;
-    calculation();
     TotalAmount();
+    calculation();
 };
 
 // UPDATE ITEMS LIST
@@ -120,7 +122,6 @@ let update = (id) => {
 let updateCartItem = (id) => {
     let search = cartList.find((x) => x.id === id);
     document.getElementById("item-id-"+id).innerHTML = search.item;
-    updateCartItem(document.getElementById("item-id-"+id));
     calculation();
     TotalAmount();
   };
@@ -139,6 +140,9 @@ let removeItem = (id) => {
     generateShop();
     TotalAmount();
     calculation();
+    if(cartList.length === 0){
+        closeCart();
+    }
     localStorage.setItem("shopping-cart", JSON.stringify(cartList));
 };
   
@@ -152,6 +156,7 @@ let clearCart = () => {
 };
 
 let TotalAmount = () => {
+    cartAmountItems.innerHTML = `Shopping Cart`;
     if (cartList.length !== 0) {
       let amount = cartList
         .map((x) => {
@@ -162,10 +167,8 @@ let TotalAmount = () => {
         })
         .reduce((x, y) => x + y, 0);
       // console.log(amount);
-      cartTotalAmountInfo.innerHTML = `
-        <p>Total: <span>$${amount}</span></p>
-        <button class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>
-      `;
+      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
+        cartAmountItems.innerText = `Shopping Cart (${cartList.map((x) => x.item).reduce((x, y) => x + y, 0)} items)`;
     } else return;
   };
   

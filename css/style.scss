@@ -45,6 +45,7 @@ body{
     background-color: $bg-color;
     position: relative;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 h1{
@@ -64,11 +65,11 @@ ul{
 .overlay{
     visibility: hidden;
     opacity: 0;
-    width: 100%;
-    height: 100%;
+    width: 200vw;
+    height: 100vh;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -50%;
     z-index: 1;
     background: $overlay-color;   
     transition: all 0.5s ease-in-out;         
@@ -98,10 +99,14 @@ ul{
 
 header{
     width: 100%;
-    height: 120px;
+    height: 100px;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    position: sticky;
 
     // APPEARANCE
-   
+   background: $bg-color;
 
     // FLEXBOX
     display: flex;
@@ -383,10 +388,10 @@ header{
 
 main{
     .product-gallery{
-
         grid-template-columns: repeat(4, 1fr);
         grid-template-rows: repeat(2, 1fr);
         gap: 20px;
+        z-index: 1;
 
         .product-card{
             padding: 16px;
@@ -402,7 +407,7 @@ main{
 
             .product-image{
                 width: 100%;
-                height: 40vh;
+                height: 30vh;
                 overflow: hidden;
                 
                 background-color: red;
