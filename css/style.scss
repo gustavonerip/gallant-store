@@ -34,6 +34,10 @@ $overlay-color: #02101dce;
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: $copy-font-family;
     font-size: $font-md;
@@ -199,6 +203,7 @@ header{
 
         .cart-items{
             width: 100%;
+            height: 73%;
             overflow-y: scroll;
             overflow-x: hidden;
 
@@ -209,6 +214,7 @@ header{
 
             .cart-item{
                 width: 100%;
+                height: fit-content;
                 padding: 16px;
                 border-radius: 8px;
                 background: $bg-color-2;
@@ -223,7 +229,7 @@ header{
 
                 .cart-item-thumbnail{
                     width: 30%;
-                    height: 100%;
+                    height: 100px;
                     margin: 0;
                     padding: 0;
 
@@ -310,16 +316,19 @@ header{
 
         .cart-total-info{
             width: 100%;
+            height: 20%;
             position: absolute;
             bottom: 0;
             right: 0;
-            padding: 8%;
+            padding: 0 5%;
             border-top: solid 1px #ccc;
+            background: $bg-color;
 
             // FLEXBOX
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
 
             p{
                 width: 80%;
@@ -334,31 +343,41 @@ header{
                 }
             }
 
-            .checkout-btn{
-                width: 50%;
-                padding: 16px;
-                background: $secondary-color;
-                border: 0;
-                cursor: pointer;
-                border-radius: 8px;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                font-weight: bold;
-                color: $black;
-                transition: all 0.3s ease-in-out;
+        }
+    }
+    .checkout-btn{
+        width: 50%;
+        padding: 16px;
+        background: $secondary-color;
+        border: 0;
+        cursor: pointer;
+        border-radius: 8px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: bold;
+        color: $black;
+        transition: all 0.3s ease-in-out;
 
-                &:hover{
-                    color: $white;
-                    background-color: $accent-color;
-                }
-            }
-
+        &:hover{
+            color: $white;
+            background-color: $accent-color;
         }
     }
     .cart-open{
         transform: translateX(0);
         visibility: visible;
         opacity: 1;
+    }
+    .empty-cart{
+        width: 100%;
+        height: 100%;
+        color: $primary-color;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 100px;
     }
 }
 

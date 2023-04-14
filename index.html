@@ -23,60 +23,14 @@
         <div class="cart-window">
 
             <div class="cart-title">
-                <h2>Shopping Cart (1 Item)</h2>
-                <div class="clear-cart-btn"><i class="fa-solid fa-trash-can"></i> Delete All</div>
+                <h2 id="cart-total-items">Shopping Cart (1 Item)</h2>
+                <div class="clear-cart-btn" onclick="clearCart()"><i class="fa-solid fa-trash-can"></i> Delete All</div>
                 <div class="close-cart-btn"><i class="fa-solid fa-x"></i></div>
             </div>
 
-        <div class="cart-items">
+        <div id="cart-items" class="cart-items"></div>
 
-            <div class="cart-item">
-                <div class="cart-item-thumbnail">
-                    <img src="images/products/casual-shirt.jpeg" alt="">
-                </div>
-                <div class="cart-item-info">
-                    <h3 class="cart-item-title">Casual Shirt <span class="cart-item-price"><i class="fa-solid fa-tag"></i> $100</span></h3>
-                    <div class="cart-item-quantity">
-                        <i class="fa-solid fa-minus"></i>
-                        <p>2</p>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-                    <p class="cart-item-total-price">Subtotal: <span>$200</span></p>
-                </div>
-
-                <div class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></div>
-
-            </div>
-
-            <div class="cart-item">
-
-                <div class="cart-item-thumbnail">
-                    <img src="images/products/casual-shirt.jpeg" alt="">
-                </div>
-
-                <div class="cart-item-info">
-
-                    <h3 class="cart-item-title">Casual Shirt <span class="cart-item-price"><i class="fa-solid fa-tag"></i> $100</span></h3>
-                    <div class="cart-item-quantity">
-                        <i class="fa-solid fa-minus"></i>
-                        <p>2</p>
-                        <i class="fa-solid fa-plus"></i>
-                    </div>
-
-                    <p class="cart-item-total-price">Subtotal: <span>$200</span></p>
-
-                </div>
-
-                <div class="cart-item-delete"><i class="fa-solid fa-trash-can"></i></div>
-
-            </div>
-
-        </div>
-
-        <div class="cart-total-info">
-            <p>Total: <span>$400</span></p>
-            <button class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>
-        </div>
+        <div id="cart-total-info" class="cart-total-info"></div>
         
         </div>
         </div>
@@ -84,13 +38,11 @@
     </header>
 
     <main class="container">
-
-        <div id="product-gallery" class="product-gallery grid">
-
-        </div>
+        <div id="product-gallery" class="product-gallery grid"></div>
     </main>
     <footer>Gustavo Neri &copy; 2023</footer>
     <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>

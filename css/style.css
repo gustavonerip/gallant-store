@@ -11,6 +11,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Schibsted Grotesk", sans-serif;
   font-size: 16px;
@@ -155,6 +159,7 @@ header .cart-window .cart-title .close-cart-btn:hover {
 }
 header .cart-window .cart-items {
   width: 100%;
+  height: 73%;
   overflow-y: scroll;
   overflow-x: hidden;
   display: flex;
@@ -163,6 +168,8 @@ header .cart-window .cart-items {
 }
 header .cart-window .cart-items .cart-item {
   width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
   padding: 16px;
   border-radius: 8px;
   background: #F2F2F2;
@@ -173,7 +180,7 @@ header .cart-window .cart-items .cart-item {
 }
 header .cart-window .cart-items .cart-item .cart-item-thumbnail {
   width: 30%;
-  height: 100%;
+  height: 100px;
   margin: 0;
   padding: 0;
 }
@@ -246,14 +253,17 @@ header .cart-window .cart-items .cart-item .cart-item-delete:hover {
 }
 header .cart-window .cart-total-info {
   width: 100%;
+  height: 20%;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 8%;
+  padding: 0 5%;
   border-top: solid 1px #ccc;
+  background: white;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
 header .cart-window .cart-total-info p {
   width: 80%;
@@ -266,7 +276,7 @@ header .cart-window .cart-total-info p {
 header .cart-window .cart-total-info p span {
   font-weight: bold;
 }
-header .cart-window .cart-total-info .checkout-btn {
+header .checkout-btn {
   width: 50%;
   padding: 16px;
   background: #F2B872;
@@ -279,7 +289,7 @@ header .cart-window .cart-total-info .checkout-btn {
   color: #142636;
   transition: all 0.3s ease-in-out;
 }
-header .cart-window .cart-total-info .checkout-btn:hover {
+header .checkout-btn:hover {
   color: #F4F7E6;
   background-color: #F26849;
 }
@@ -287,6 +297,16 @@ header .cart-open {
   transform: translateX(0);
   visibility: visible;
   opacity: 1;
+}
+header .empty-cart {
+  width: 100%;
+  height: 100%;
+  color: #658DA6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
 }
 
 main .product-gallery {
