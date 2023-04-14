@@ -5,7 +5,7 @@ let shoppingCartList = document.getElementById("cart-items");
 let cartList = JSON.parse(localStorage.getItem("shopping-cart")) || [];
 let cartAmountItems = document.getElementById("cart-total-items");
 
-
+// FUNCTION TO GENERATE SHOP ITEMS
 let generateShop = () => {
     return (shop.innerHTML = shopItemsData
       .map((x) => {
@@ -30,6 +30,7 @@ let generateShop = () => {
   
 generateShop();
 
+// FUNCTION TO GENERATE THE ITEMS IN THE CART
 let generateCartItems = () => {
     if (cartList.length !== 0) {
       return (shoppingCartList.innerHTML = cartList
@@ -71,7 +72,6 @@ let generateCartItems = () => {
 generateCartItems();
   
 // FUNCTION TO INCREASE ITEM QUANTITY IN THE CART
-
 let increment = (id) => {
     let selectedItem = id;
     let search = cartList.find((x) => x.id === selectedItem.id);
@@ -118,7 +118,6 @@ let update = (id) => {
 };
 
 // UPDATE ITEMS LIST
-
 let updateCartItem = (id) => {
     let search = cartList.find((x) => x.id === id);
     document.getElementById("item-id-"+id).innerHTML = search.item;
@@ -126,13 +125,14 @@ let updateCartItem = (id) => {
     TotalAmount();
   };
 
-// SIMPLE CALCULATION FUNCTION
+// SIMPLE CALCULATION ON TOTALS
 let calculation = () => {
     let cartIcon = document.getElementById("cartAmount");
     cartIcon.innerHTML = cartList.map((x) => x.item).reduce((x, y) => x + y, 0);
 };
 calculation();
 
+// FUNCTION TO REMOVE ITEM IN THE CART
 let removeItem = (id) => {
     let selectedItem = id;
     cartList = cartList.filter((x) => x.id !== selectedItem.id);
@@ -145,7 +145,8 @@ let removeItem = (id) => {
     }
     localStorage.setItem("shopping-cart", JSON.stringify(cartList));
 };
-  
+
+// DELETE ALL THE ITEMS IN THE CART
 let clearCart = () => {
     cartList = [];
     generateCartItems();
@@ -155,6 +156,7 @@ let clearCart = () => {
     localStorage.setItem("shopping-cart", JSON.stringify(cartList));
 };
 
+// CALCULATES THE TOTAL PURCHASE AMOUNT
 let TotalAmount = () => {
     cartAmountItems.innerHTML = `Shopping Cart`;
     if (cartList.length !== 0) {
