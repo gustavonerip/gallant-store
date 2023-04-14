@@ -175,6 +175,18 @@ header{
             align-items: center;
             justify-content: space-between;
 
+            .clear-cart-btn{
+                cursor: pointer;
+                opacity: 0.5;
+                transition: all 0.3s ease;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-size: $font-xsm;
+                &:hover{
+                    opacity: 1;
+                }
+            }
+
             .close-cart-btn{
                 cursor: pointer;
                 opacity: 0.5;
