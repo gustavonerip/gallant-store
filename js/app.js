@@ -194,8 +194,7 @@ let TotalAmount = () => {
           return item * search.price;
         })
         .reduce((x, y) => x + y, 0);
-      // console.log(amount);
-      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button onclick="goTocheckout()" class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
+
         cartAmountItems.innerText = `Shopping Cart (${cartList.map((x) => x.item).reduce((x, y) => x + y, 0)} items)`;
     } else return;
   };
@@ -213,9 +212,4 @@ let goTocheckout = () =>{
         <p>Forgot something?</p>
     <button class="btn" onclick="closePurchaseStatus()">Continue shopping!</button>`;
     clearCart();
-}
-
-// ClOSE PURCHASE STATUS WINDOW
-let closePurchaseStatus = ()=>{
-    checkOutWindow.style.display = "none";
 }
