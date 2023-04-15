@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallant | Men's Clothing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <header class="container">
+        <div class="logo"><i class="fa-solid fa-horse-head"></i> Gallant</div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Shop</a></li>
+            </ul>
+        </nav>
+        <div class="cart-btn"><i class="fa-solid fa-cart-shopping"></i><span id="cartAmount">0</span></div>
+
+        <div class="cart-window">
+
+            <div class="cart-title">
+                <h2 id="cart-total-items"></h2>
+                <div class="clear-cart-btn" onclick="clearCart()"><i class="fa-solid fa-trash-can"></i> Delete All</div>
+                <div class="close-cart-btn"><i class="fa-solid fa-x"></i></div>
+            </div>
+
+        <div id="cart-items" class="cart-items"></div>
+
+        <div id="cart-total-info" class="cart-total-info"></div>
+        
+        </div>
+        </div>
+        <div class="overlay"></div>
+    </header>
+    
+    <main class="container">
+        
+        <div class="purchase-window">
+
+            <h1>Thank you for your purchase!</h1>
+
+            <p>Exciting things are on your way.</p>
+
+            <p>Forgot something?</p>
+            <a class="btn" href="index.html"><i class="fa-solid fa-cart-shopping"></i> Continue Shopping</a>
+
+        </div>
+        
+    </main>
+    <footer>Gustavo Neri &copy; 2023</footer>
+    <script src="js/app.js"></script>
+</body>
+</html>

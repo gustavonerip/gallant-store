@@ -169,7 +169,7 @@ let TotalAmount = () => {
         })
         .reduce((x, y) => x + y, 0);
       // console.log(amount);
-      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
+      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button class="checkout-btn" onclick="goToCheckout()"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
         cartAmountItems.innerText = `Shopping Cart (${cartList.map((x) => x.item).reduce((x, y) => x + y, 0)} items)`;
     } else return;
   };
@@ -200,4 +200,9 @@ overlay.addEventListener('click', ()=>{
 let closeCart = ()=>{
     cartWindow.classList.toggle('cart-open');
     overlay.classList.toggle('cart-open');
+}
+
+let goToCheckout = ()=>{
+    clearCart();
+    window.location.href='checkout.html';
 }
