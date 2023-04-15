@@ -1,3 +1,29 @@
+// OPEN & CLOSE CART WINDOW
+const cartBtn = document.querySelector(".cart-btn");
+const cartWindow = document.querySelector(".cart-window");
+const closeCartBtn = document.querySelector(".close-cart-btn");
+const overlay = document.querySelector(".overlay");
+
+cartBtn.addEventListener('click', ()=>{
+    cartWindow.classList.toggle('cart-open');
+    overlay.classList.toggle('cart-open');
+});
+
+closeCartBtn.addEventListener('click', ()=>{
+    cartWindow.classList.toggle('cart-open');
+    overlay.classList.toggle('cart-open');
+});
+
+overlay.addEventListener('click', ()=>{
+    cartWindow.classList.toggle('cart-open');
+    overlay.classList.toggle('cart-open');
+});
+
+let closeCart = ()=>{
+    cartWindow.classList.toggle('cart-open');
+    overlay.classList.toggle('cart-open');
+}
+
 // GENERATE SHOP ITEMS
 let shop = document.getElementById("product-gallery");
 let cartTotalAmountInfo = document.getElementById("cart-total-info");
@@ -169,35 +195,27 @@ let TotalAmount = () => {
         })
         .reduce((x, y) => x + y, 0);
       // console.log(amount);
-      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
+      cartTotalAmountInfo.innerHTML = `<p>Total: <span>$${amount}</span></p><button onclick="goTocheckout()" class="checkout-btn"><i class="fa-solid fa-credit-card"></i> Checkout</button>`;
         cartAmountItems.innerText = `Shopping Cart (${cartList.map((x) => x.item).reduce((x, y) => x + y, 0)} items)`;
     } else return;
   };
   
   TotalAmount();
 
-// OPEN & CLOSE CART WINDOW
-const cartBtn = document.querySelector(".cart-btn");
-const cartWindow = document.querySelector(".cart-window");
-const closeCartBtn = document.querySelector(".close-cart-btn");
-const overlay = document.querySelector(".overlay");
+// GO TO CHECKOUT FUNCTION
+let goTocheckout = () =>{
+    let checkOutWindow = document.getElementById('purchase-status');
+    closeCart();
+    checkOutWindow.style.display = "flex";
+    checkOutWindow.innerHTML = `
+    <h2>Thank you for your purchase!</h2>
+        <p>Exciting things are on your way.</p>
+        <p>Forgot something?</p>
+    <button class="btn" onclick="closePurchaseStatus()">Continue shopping!</button>`;
+    clearCart();
+}
 
-cartBtn.addEventListener('click', ()=>{
-    cartWindow.classList.toggle('cart-open');
-    overlay.classList.toggle('cart-open');
-});
-
-closeCartBtn.addEventListener('click', ()=>{
-    cartWindow.classList.toggle('cart-open');
-    overlay.classList.toggle('cart-open');
-});
-
-overlay.addEventListener('click', ()=>{
-    cartWindow.classList.toggle('cart-open');
-    overlay.classList.toggle('cart-open');
-});
-
-let closeCart = ()=>{
-    cartWindow.classList.toggle('cart-open');
-    overlay.classList.toggle('cart-open');
+// ClOSE PURCHASE STATUS WINDOW
+let closePurchaseStatus = ()=>{
+    checkOutWindow.style.display = "none";
 }

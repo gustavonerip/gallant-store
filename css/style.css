@@ -381,6 +381,57 @@ main .product-gallery .product-card .btn:hover {
   color: #F4F7E6;
 }
 
+.purchase-status {
+  width: 50%;
+  height: 50%;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  padding: 100px;
+  z-index: 100;
+  background: white;
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.purchase-status h2 {
+  display: block;
+  font-size: 32px;
+  color: #142636;
+  text-align: center;
+  padding: 20px;
+}
+.purchase-status :nth-child(2) {
+  color: #142636;
+  font-size: 16px;
+  padding: 10px;
+  margin-bottom: 100px;
+}
+.purchase-status:nth-child(3) {
+  color: #658DA6;
+  font-size: 14px;
+}
+.purchase-status .btn {
+  padding: 16px;
+  margin-top: 20px;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #658DA6;
+  border: solid 1px #658DA6;
+}
+.purchase-status .btn:hover {
+  border: 0;
+  background: #658DA6;
+  color: #F4F7E6;
+}
+
 footer {
   text-align: center;
   font-size: 12px;
